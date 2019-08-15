@@ -1,7 +1,17 @@
 #!/bin/bash
 
 clear
-echo "Linux Survey Tool"
+echo "
+ __                                      ____                                               ______                ___      
+/\ \       __                           /\  _`\                                            /\__  _\              /\_ \     
+\ \ \     /\_\    ___   __  __  __  _   \ \,\L\_\  __  __  _ __   __  __     __   __  __   \/_/\ \/   ___     ___\//\ \    
+ \ \ \  __\/\ \ /' _ `\/\ \/\ \/\ \/'\   \/_\__ \ /\ \/\ \/\`'__\/\ \/\ \  /'__`\/\ \/\ \     \ \ \  / __`\  / __`\\ \ \   
+  \ \ \L\ \\ \ \/\ \/\ \ \ \_\ \/>  </     /\ \L\ \ \ \_\ \ \ \/ \ \ \_/ |/\  __/\ \ \_\ \     \ \ \/\ \L\ \/\ \L\ \\_\ \_ 
+   \ \____/ \ \_\ \_\ \_\ \____//\_/\_\    \ `\____\ \____/\ \_\  \ \___/ \ \____\\/`____ \     \ \_\ \____/\ \____//\____\
+    \/___/   \/_/\/_/\/_/\/___/ \//\/_/     \/_____/\/___/  \/_/   \/__/   \/____/ `/___/> \     \/_/\/___/  \/___/ \/____/
+                                                                                      /\___/                               
+                                                                                      \/__/                                
+"
 
 read -p 'How many hosts do you want to scan?: ' input
 
@@ -13,34 +23,34 @@ do
 read -p 'Enter host IP address: ' host$counter
 set "host$counter=$host1"
 echo "1. $host1"
-if [ -n "${host1+set}" ];then
-set "host"$counter="$host2"
-fi
-echo "2. $host2"
 if [ -n "${host2+set}" ];then
-set "host"$counter="$host3"
+set "host"$counter="$host2"
+echo "2. $host2"
 fi
-echo "3. $host3"
 if [ -n "${host3+set}" ];then
-set "host"$counter="$host4"
+set "host"$counter="$host3"
+echo "3. $host3"
 fi
-echo "4. $host4"
 if [ -n "${host4+set}" ];then
-set "host"$counter="$host5"
+set "host"$counter="$host4"
+echo "4. $host4"
 fi
-echo "5. $host4"
 if [ -n "${host5+set}" ];then
-set "host"$counter="$host6"
+set "host"$counter="$host5"
+echo "5. $host5"
 fi
-echo "6. $host5"
 if [ -n "${host6+set}" ];then
-set "host"$counter="$host7"
+set "host"$counter="$host6"
+echo "6. $host6"
 fi
-echo "7. $host6"
 if [ -n "${host7+set}" ];then
-set "host"$counter="$host8"
+set "host"$counter="$host7"
+echo "7. $host7"
 fi
-echo "8. $host7"
+if [ -n "${host8+set}" ];then
+set "host"$counter="$host8"
+echo "8. $host8"
+fi
 if [[ "$number" == "$input" ]]; then
 break
 fi
@@ -63,12 +73,13 @@ mkdir /etc/$host1
 ps -aef > /etc/$host1/proc
 netstat -t > /etc/$host1/netstat
 lsmod > /etc/$host1/drivers
+cd /
+find **/ >> /etc/$host1/dir
 exit
 EOF
 
 echo "Finished creating Files for $host1"
 
-sleep 1
 fi
 
 if [ -n "${host1+set}" ]; then
@@ -89,12 +100,13 @@ mkdir /etc/$host2
 ps -aef > /etc/$host2/proc
 netstat -t > /etc/$host2/netstat
 lsmod > /etc/$host2/drivers
+cd /
+find **/ >> /etc/$host2/dir
 exit
 EOF
 
 echo "Finished creating Files for $host2"
 
-sleep 1
 fi
 if [ -n "${host2+set}" ]; then
 sshpass -f "/home/assessor/Documents/nothing" sftp -q root@"$host2" <<EOF
@@ -114,12 +126,13 @@ mkdir /etc/$host3
 ps -aef > /etc/$host3/proc
 netstat -t > /etc/$host3/netstat
 lsmod > /etc/$host3/drivers
+cd /
+find **/ >> /etc/$host3/dir
 exit
 EOF
 
 echo "Finished creating Files for $host3"
 
-sleep 1
 fi
 if [ -n "${host3+set}" ]; then
 sshpass -f "/home/assessor/Documents/nothing" sftp -q root@"$host3" <<EOF
@@ -139,12 +152,13 @@ mkdir /etc/$host4
 ps -aef > /etc/$host4/proc
 netstat -t > /etc/$host4/netstat
 lsmod > /etc/$host4/drivers
+cd /
+find **/ >> /etc/$host4/dir
 exit
 EOF
 
 echo "Finished creating Files for $host4"
 
-sleep 1
 fi
 if [ -n "${host4+set}" ]; then
 sshpass -f "/home/assessor/Documents/nothing" sftp -q root@"$host4" <<EOF
@@ -164,12 +178,13 @@ mkdir /etc/$host5
 ps -aef > /etc/$host5/proc
 netstat -t > /etc/$host5/netstat
 lsmod > /etc/$host5/drivers
+cd /
+find **/ >> /etc/$host5/dir
 exit
 EOF
 
 echo "Finished creating Files for $host5"
 
-sleep 1
 fi
 if [ -n "${host5+set}" ]; then
 sshpass -f "/home/assessor/Documents/nothing" sftp -q root@"$host5" <<EOF
@@ -189,12 +204,13 @@ mkdir /etc/$host6
 ps -aef > /etc/$host6/proc
 netstat -t > /etc/$host6/netstat
 lsmod > /etc/$host6/drivers
+cd /
+find **/ >> /etc/$host6/dir
 exit
 EOF
 
 echo "Finished creating Files for $host6"
 
-sleep 1
 fi
 if [ -n "${host6+set}" ]; then
 sshpass -f "/home/assessor/Documents/nothing" sftp -q root@"$host6" <<EOF
@@ -214,12 +230,13 @@ mkdir /etc/$host7
 ps -aef > /etc/$host7/proc
 netstat -t > /etc/$host7/netstat
 lsmod > /etc/$host7/drivers
+cd /
+find **/ >> /etc/$host7/dir
 exit
 EOF
 
 echo "Finished creating Files for $host7"
 
-sleep 1
 fi
 if [ -n "${host7+set}" ]; then
 sshpass -f "/home/assessor/Documents/nothing" sftp -q root@"$host7" <<EOF
@@ -239,12 +256,13 @@ mkdir /etc/$host8
 ps -aef > /etc/$host8/proc
 netstat -t > /etc/$host8/netstat
 lsmod > /etc/$host8/drivers
+cd /
+find **/ >> /etc/$host8/dir
 exit
 EOF
 
 echo "Finished creating Files for $host8"
 
-sleep 1
 fi
 if [ -n "${host8+set}" ]; then
 sshpass -f "/home/assessor/Documents/nothing" sftp -q root@"$host8" <<EOF
