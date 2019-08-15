@@ -1,2 +1,2 @@
 # linux_survey
-THis is a script to pull back baseline netstat, files, and processes from linux systems
+This tool is used to pull back directory, process, netstat, and driver information from linux hosts.
