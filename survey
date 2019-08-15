@@ -1,0 +1,263 @@
+#!/bin/bash
+
+clear
+echo "Linux Survey Tool"
+
+read -p 'How many hosts do you want to scan?: ' input
+
+counter=0
+
+while [ $counter -lt $input ]
+do
+((counter++))
+read -p 'Enter host IP address: ' host$counter
+set "host$counter=$host1"
+echo "1. $host1"
+if [ -n "${host1+set}" ];then
+set "host"$counter="$host2"
+fi
+echo "2. $host2"
+if [ -n "${host2+set}" ];then
+set "host"$counter="$host3"
+fi
+echo "3. $host3"
+if [ -n "${host3+set}" ];then
+set "host"$counter="$host4"
+fi
+echo "4. $host4"
+if [ -n "${host4+set}" ];then
+set "host"$counter="$host5"
+fi
+echo "5. $host4"
+if [ -n "${host5+set}" ];then
+set "host"$counter="$host6"
+fi
+echo "6. $host5"
+if [ -n "${host6+set}" ];then
+set "host"$counter="$host7"
+fi
+echo "7. $host6"
+if [ -n "${host7+set}" ];then
+set "host"$counter="$host8"
+fi
+echo "8. $host7"
+if [[ "$number" == "$input" ]]; then
+break
+fi
+done
+read -p "Are you sure? [y/n]" -n 1 -r
+if [[ ! $REPLY =~ ^[Yy]$ ]]
+then
+    exit 1
+fi
+
+clear
+
+read -sp 'Remote host root Password: ' password
+
+echo $password > /home/assessor/Documents/nothing
+####################################################################################################
+if [ -n "${host1+set}" ]; then
+sshpass -f "/home/assessor/Documents/nothing" ssh -q root@"$host1" <<EOF
+mkdir /etc/$host1
+ps -aef > /etc/$host1/proc
+netstat -t > /etc/$host1/netstat
+lsmod > /etc/$host1/drivers
+exit
+EOF
+
+echo "Finished creating Files for $host1"
+
+sleep 1
+fi
+
+if [ -n "${host1+set}" ]; then
+sshpass -f "/home/assessor/Documents/nothing" sftp -q root@"$host1" <<EOF
+get -rf /etc/$host1 /home/assessor/Desktop
+rm /etc/$host1/*
+rmdir /etc/$host1
+exit
+EOF
+
+echo "Finished moving and deleting Files for $host1"
+
+fi
+##################################################################################################
+if [ -n "${host2+set}" ]; then
+sshpass -f "/home/assessor/Documents/nothing" ssh -q root@"$host2" <<EOF
+mkdir /etc/$host2
+ps -aef > /etc/$host2/proc
+netstat -t > /etc/$host2/netstat
+lsmod > /etc/$host2/drivers
+exit
+EOF
+
+echo "Finished creating Files for $host2"
+
+sleep 1
+fi
+if [ -n "${host2+set}" ]; then
+sshpass -f "/home/assessor/Documents/nothing" sftp -q root@"$host2" <<EOF
+get -rf /etc/$host2 /home/assessor/Desktop
+rm /etc/$host2/*
+rmdir /etc/$host2
+exit
+EOF
+
+echo "Finished moving and deleting Files for $host2"
+
+fi
+##################################################################################################
+if [ -n "${host3+set}" ]; then
+sshpass -f "/home/assessor/Documents/nothing" ssh -q root@"$host3" <<EOF
+mkdir /etc/$host3
+ps -aef > /etc/$host3/proc
+netstat -t > /etc/$host3/netstat
+lsmod > /etc/$host3/drivers
+exit
+EOF
+
+echo "Finished creating Files for $host3"
+
+sleep 1
+fi
+if [ -n "${host3+set}" ]; then
+sshpass -f "/home/assessor/Documents/nothing" sftp -q root@"$host3" <<EOF
+get -rf /etc/$host3 /home/assessor/Desktop
+rm /etc/$host3/*
+rmdir /etc/$host3
+exit
+EOF
+
+echo "Finished moving and deleting Files for $host3"
+
+fi
+##################################################################################################
+if [ -n "${host4+set}" ]; then
+sshpass -f "/home/assessor/Documents/nothing" ssh -q root@"$host4" <<EOF
+mkdir /etc/$host4
+ps -aef > /etc/$host4/proc
+netstat -t > /etc/$host4/netstat
+lsmod > /etc/$host4/drivers
+exit
+EOF
+
+echo "Finished creating Files for $host4"
+
+sleep 1
+fi
+if [ -n "${host4+set}" ]; then
+sshpass -f "/home/assessor/Documents/nothing" sftp -q root@"$host4" <<EOF
+get -rf /etc/$host4 /home/assessor/Desktop
+rm /etc/$host4/*
+rmdir /etc/$host4
+exit
+EOF
+
+echo "Finished moving and deleting Files for $host4"
+
+fi
+##################################################################################################
+if [ -n "${host5+set}" ]; then
+sshpass -f "/home/assessor/Documents/nothing" ssh -q root@"$host5" <<EOF
+mkdir /etc/$host5
+ps -aef > /etc/$host5/proc
+netstat -t > /etc/$host5/netstat
+lsmod > /etc/$host5/drivers
+exit
+EOF
+
+echo "Finished creating Files for $host5"
+
+sleep 1
+fi
+if [ -n "${host5+set}" ]; then
+sshpass -f "/home/assessor/Documents/nothing" sftp -q root@"$host5" <<EOF
+get -rf /etc/$host5 /home/assessor/Desktop
+rm /etc/$host5/*
+rmdir /etc/$host5
+exit
+EOF
+
+echo "Finished moving and deleting Files for $host5"
+
+fi
+#################################################################################################
+if [ -n "${host6+set}" ]; then
+sshpass -f "/home/assessor/Documents/nothing" ssh -q root@"$host6" <<EOF
+mkdir /etc/$host6
+ps -aef > /etc/$host6/proc
+netstat -t > /etc/$host6/netstat
+lsmod > /etc/$host6/drivers
+exit
+EOF
+
+echo "Finished creating Files for $host6"
+
+sleep 1
+fi
+if [ -n "${host6+set}" ]; then
+sshpass -f "/home/assessor/Documents/nothing" sftp -q root@"$host6" <<EOF
+get -rf /etc/$host6 /home/assessor/Desktop
+rm /etc/$host6/*
+rmdir /etc/$host6
+exit
+EOF
+
+echo "Finished moving and deleting Files for $host6"
+
+fi
+#################################################################################################
+if [ -n "${host7+set}" ]; then
+sshpass -f "/home/assessor/Documents/nothing" ssh -q root@"$host7" <<EOF
+mkdir /etc/$host7
+ps -aef > /etc/$host7/proc
+netstat -t > /etc/$host7/netstat
+lsmod > /etc/$host7/drivers
+exit
+EOF
+
+echo "Finished creating Files for $host7"
+
+sleep 1
+fi
+if [ -n "${host7+set}" ]; then
+sshpass -f "/home/assessor/Documents/nothing" sftp -q root@"$host7" <<EOF
+get -rf /etc/$host7 /home/assessor/Desktop
+rm /etc/$host7/*
+rmdir /etc/$host7
+exit
+EOF
+
+echo "Finished moving and deleting Files for $host7"
+
+fi
+################################################################################################
+if [ -n "${host8+set}" ]; then
+sshpass -f "/home/assessor/Documents/nothing" ssh -q root@"$host8" <<EOF
+mkdir /etc/$host8
+ps -aef > /etc/$host8/proc
+netstat -t > /etc/$host8/netstat
+lsmod > /etc/$host8/drivers
+exit
+EOF
+
+echo "Finished creating Files for $host8"
+
+sleep 1
+fi
+if [ -n "${host8+set}" ]; then
+sshpass -f "/home/assessor/Documents/nothing" sftp -q root@"$host8" <<EOF
+get -rf /etc/$host8 /home/assessor/Desktop
+rm /etc/$host8/*
+rmdir /etc/$host8
+exit
+EOF
+
+echo "Finished moving and deleting Files for $host8"
+
+fi
+################################################################################################
+rm /home/assessor/Documents/nothing
+
+echo All done!
